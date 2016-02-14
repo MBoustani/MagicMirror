@@ -38,12 +38,14 @@
           <span class="forecast_low_high" id='forecast_5_date'></span><span class="forecast_low_high" id='forecast_5_high'></span><span class="forecast_low_high" id='forecast_5_low'></span>
           <br>
         </div>
+        <div id="rss-feeds"></div>
         <div id="news">
           <span id="techcrunch">TechCrunch</span>
           <div id="techcrunch_rss_feeds"></div>
           <span id="cnn">CNN</span>
           <div id="cnn_rss_feeds"></div>
         </div>
+        
       
     <script>
       days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -127,6 +129,7 @@
     })}, 30000);
 
       window.setInterval(function(){ jQuery(function($) {
+        $("#techcrunch_rss_feeds").empty();
         $("#techcrunch_rss_feeds")
           .hide()
           .rss("http://feeds.feedburner.com/TechCrunch/", {
@@ -140,6 +143,7 @@
       })}, 30000);
 
       window.setInterval(function(){ jQuery(function($) {
+        $("#cnn_rss_feeds").empty();
         $("#cnn_rss_feeds")
           .hide()
           .rss("http://rss.cnn.com/rss/edition.rss", {
