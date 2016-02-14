@@ -64,7 +64,7 @@ html,body{
 }
 
 #news_title{
-    font-size: 15px;
+    font-size: 10px;
     color: #ffffff;
 }
 
@@ -85,6 +85,18 @@ html,body{
     font-weight: 100;
 }
 
+#sunrise{
+    color: #989898;
+    font-size: 20px;
+    font-weight: 100;    
+}
+
+#sunset{
+    color: #989898;
+    font-size: 20px;
+    font-weight: 100;    
+}
+
 #sunrise_logo{
     width: 30px;
     margin-right: 20px;
@@ -96,9 +108,10 @@ html,body{
 }
 
 #forecast{
-    text-align: center;
+    text-align: right;
+    margin-right: 20px;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 100;
 }
 
