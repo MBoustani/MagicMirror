@@ -10,7 +10,7 @@ html,body{
 #clock{
     text-align: center;
     color: #ffffff;
-    font-size: 200px;
+    font-size: 100px;
     font-weight: 100;
     margin-right: 0px;
 }
@@ -18,19 +18,19 @@ html,body{
 #second{
     text-align: center;
     color: #989898;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 100;
 }
 
 #day{
     color: #ffffff;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 100;
 }
 
 #date{
     color: #ffffff;
-    font-size: 40px;
+    font-size: 20px;
     font-weight: 100;
 }
 
@@ -52,28 +52,28 @@ html,body{
 #techcrunch{
     text-align: center;
     color: #ffffff;
-    font-size: 50px;
+    font-size: 20px;
     font-weight: 100;
 }
 
 #cnn{
     text-align: center;
     color: #ffffff;
-    font-size: 50px;
+    font-size: 20px;
     font-weight: 100;
 }
 
 #news_title{
-    font-size: 30px;
+    font-size: 10px;
 }
 
 #news_body{
-    font-size: 15px;
+    font-size: 5px;
 }
 
 #temp{
     color: #ffffff;
-    font-size: 150px;
+    font-size: 100px;
     font-weight: 100;
 }
 
