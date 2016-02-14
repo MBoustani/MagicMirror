@@ -131,7 +131,7 @@
         $("#techcrunch_rss_feeds")
           .hide()
           .rss("http://feeds.feedburner.com/TechCrunch/", {
-            limit: 10,
+            limit: 5,
             entryTemplate: '<span id="news_title">{title}</span><div><span id="news_body">{bodyPlain}</span></div>'
           }, function() {
             $("#techcrunch_rss_feeds")
@@ -144,7 +144,7 @@
         $("#cnn_rss_feeds")
           .hide()
           .rss("http://rss.cnn.com/rss/edition.rss", {
-            limit: 10,
+            limit: 5,
             entryTemplate: '<span id="news_title">{title}</span><div><span id="news_body">{bodyPlain}</span></div>'
           }, function() {
             $("#cnn_rss_feeds")

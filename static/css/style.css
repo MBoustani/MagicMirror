@@ -64,11 +64,13 @@ html,body{
 }
 
 #news_title{
-    font-size: 10px;
+    font-size: 15px;
+    color: #ffffff;
 }
 
 #news_body{
-    font-size: 5px;
+    font-size: 10px;
+    color: #ffffff;
 }
 
 #temp{
@@ -96,7 +98,7 @@ html,body{
 #forecast{
     text-align: center;
     color: #ffffff;
-    font-size: 50px;
+    font-size: 20px;
     font-weight: 100;
 }
 
