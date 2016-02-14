@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/css/style.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/flipclock.css">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.rss.js"></script>
+
+  </head>
+  <body class="black" onload=display_ct();>
+        <span id='clock'></span><span id='second'></span>
+      </div>
+        <br>
+        <span id='day'></span>
+        <br>
+        <span id='date'></span>
+        <br>
+        <div id="weather">
+          <span id='temp'></span><span id="deg">&#8457;</span>
+          <br>
+          <img src="static/img/sunrise.png" id="sunrise_logo"><span id='sunrise'></span>
+          <br>
+          <img src="static/img/sunset.png" id="sunset_logo"><span id='sunset'></span>
+          <br>
+          <h1 id="forecast">Forecast</h1>
+          <span class="forecast_low_high" id='forecast_1_date'></span><span class="forecast_low_high" id='forecast_1_high'></span><span class="forecast_low_high" id='forecast_1_low'></span>
+          <br>
+          <span class="forecast_low_high" id='forecast_2_date'></span><span class="forecast_low_high" id='forecast_2_high'></span><span class="forecast_low_high" id='forecast_2_low'></span>
+          <br>
+          <span class="forecast_low_high" id='forecast_3_date'></span><span class="forecast_low_high" id='forecast_3_high'></span><span class="forecast_low_high" id='forecast_3_low'></span>
+          <br>
+          <span class="forecast_low_high" id='forecast_4_date'></span><span class="forecast_low_high" id='forecast_4_high'></span><span class="forecast_low_high" id='forecast_4_low'></span>
+          <br>
+          <span class="forecast_low_high" id='forecast_5_date'></span><span class="forecast_low_high" id='forecast_5_high'></span><span class="forecast_low_high" id='forecast_5_low'></span>
+          <br>
+        </div>
+        <div id="news">
+          <span id="techcrunch">TechCrunch</span>
+          <div id="techcrunch_rss_feeds"></div>
+          <span id="cnn">CNN</span>
+          <div id="cnn_rss_feeds"></div>
+        </div>
+      
+    <script>
+      days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+      function display_c(){
+        var refresh=1000; // Refresh rate in milli seconds
+        mytime=setTimeout('display_ct()',refresh)
+      }
+
+      function display_ct() {
+        var strcount;
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        var DoM = today.getDate()
+        var D = today.getDay()
+        var M = today.getMonth();
+        var Y = today.getFullYear();
+        document.getElementById('clock').innerHTML = h + ":" + m;
+        document.getElementById('second').innerHTML = s;
+        document.getElementById('day').innerHTML = days[D]
+        document.getElementById('date').innerHTML = months[M] + " " + DoM + ", " + Y;
+        tt=display_c();
+      }
+    
+      window.setInterval(function(){ jQuery(function($) {
+        $.ajax({
+          url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Los%20Angeles%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",
+          data: {},
+          success: function(data) {
+            console.log(data);
+            var sunrise = data.query.results.channel.astronomy.sunrise;
+            document.getElementById('sunrise').innerHTML = sunrise;
+            var sunset = data.query.results.channel.astronomy.sunset;
+            document.getElementById('sunset').innerHTML = sunset;
+            var humidity = data.query.results.channel.atmosphere.humidity;
+            //document.getElementById('humidity').innerHTML = humidity;
+            var temp = data.query.results.channel.item.condition.temp;
+            document.getElementById('temp').innerHTML = temp;
+            var forecast = data.query.results.channel.item.forecast;
+            var forecast_1 = forecast[0];
+            var forecast_1_date = forecast[0].day;
+            var forecast_1_high = forecast[0].high;
+            var forecast_1_low = forecast[0].low;
+            document.getElementById('forecast_1_date').innerHTML = forecast_1_date;
+            document.getElementById('forecast_1_high').innerHTML = forecast_1_high;
+            document.getElementById('forecast_1_low').innerHTML = forecast_1_low;
+            var forecast_2 = forecast[1];
+            var forecast_2_date = forecast[1].day;
+            var forecast_2_high = forecast[1].high;
+            var forecast_2_low = forecast[1].low;
+            document.getElementById('forecast_2_date').innerHTML = forecast_2_date;
+            document.getElementById('forecast_2_high').innerHTML = forecast_2_high;
+            document.getElementById('forecast_2_low').innerHTML = forecast_2_low;
+            var forecast_3 = forecast[2];
+            var forecast_3_date = forecast[2].day;
+            var forecast_3_high = forecast[2].high;
+            var forecast_3_low = forecast[2].low;
+            document.getElementById('forecast_3_date').innerHTML = forecast_3_date;
+            document.getElementById('forecast_3_high').innerHTML = forecast_3_high;
+            document.getElementById('forecast_3_low').innerHTML = forecast_3_low;
+            var forecast_4 = forecast[3];
+            var forecast_4_date = forecast[3].day;
+            var forecast_4_high = forecast[3].high;
+            var forecast_4_low = forecast[3].low;
+            document.getElementById('forecast_4_date').innerHTML = forecast_4_date;
+            document.getElementById('forecast_4_high').innerHTML = forecast_4_high;
+            document.getElementById('forecast_4_low').innerHTML = forecast_4_low;
+            var forecast_5 = forecast[4];
+            var forecast_5_date = forecast[4].day;
+            var forecast_5_high = forecast[4].high;
+            var forecast_5_low = forecast[4].low;
+            document.getElementById('forecast_5_date').innerHTML = forecast_5_date;
+            document.getElementById('forecast_5_high').innerHTML = forecast_5_high;
+            document.getElementById('forecast_5_low').innerHTML = forecast_5_low;
+            },
+          dataType: 'json'
+        });
+    })}, 600000);
+
+      window.setInterval(function(){ jQuery(function($) {
+        $("#techcrunch_rss_feeds")
+          .hide()
+          .rss("http://feeds.feedburner.com/TechCrunch/", {
+            limit: 10,
+            entryTemplate: '<span id="news_title">{title}</span><div><span id="news_body">{bodyPlain}</span></div>'
+          }, function() {
+            $("#techcrunch_rss_feeds")
+              .show()
+              .find('> div')
+          })
+      })}, 30000);
+
+      window.setInterval(function(){ jQuery(function($) {
+        $("#cnn_rss_feeds")
+          .hide()
+          .rss("http://rss.cnn.com/rss/edition.rss", {
+            limit: 10,
+            entryTemplate: '<span id="news_title">{title}</span><div><span id="news_body">{bodyPlain}</span></div>'
+          }, function() {
+            $("#cnn_rss_feeds")
+              .show()
+              .find('> div')
+          })
+      })}, 30000);
+    </script>
+  </body>
+</html>
