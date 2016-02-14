@@ -1,7 +1,6 @@
 html,body{
     background:#000000;
     text-align: center;
-    overflow:hidden;
 }
 
 .black{
@@ -47,6 +46,7 @@ html,body{
     color: #ffffff;
     text-align: left;
     width: 800px;
+    overflow:hidden;
 }
 
 #techcrunch{
