@@ -64,7 +64,7 @@ html,body{
 }
 
 #news_title{
-    font-size: 10px;
+    font-size: 25px;
     color: #ffffff;
 }
 
@@ -75,7 +75,7 @@ html,body{
 
 #temp{
     color: #ffffff;
-    font-size: 50px;
+    font-size: 65px;
     font-weight: 100;
 }
 
@@ -87,13 +87,13 @@ html,body{
 
 #sunrise{
     color: #989898;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 100;    
 }
 
 #sunset{
     color: #989898;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 100;    
 }
 
@@ -119,5 +119,5 @@ html,body{
     text-align: right;
     margin-right: 20px;
     font-weight: 100;
-    font-size: 15px;
+    font-size: 25px;
 }
