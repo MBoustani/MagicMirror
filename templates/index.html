@@ -148,7 +148,7 @@
           .hide()
           .rss("http://rss.cnn.com/rss/edition.rss", {
             limit: 5,
-            entryTemplate: '<span id="news_title">{title}</span><br>'//<div><span id="news_body">{bodyPlain}</span></div>'
+            entryTemplate: '- <span id="news_title">{title}</span><br><br>'//<div><span id="news_body">{bodyPlain}</span></div>'
           }, function() {
             $("#cnn_rss_feeds")
               .show()
