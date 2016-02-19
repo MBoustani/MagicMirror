@@ -10,7 +10,7 @@ html,body{
 #clock{
     text-align: center;
     color: #ffffff;
-    font-size: 150px;
+    font-size: 180px;
     font-weight: 100;
     margin-right: 0px;
 }
@@ -18,7 +18,7 @@ html,body{
 #second{
     text-align: center;
     color: #989898;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 100;
 }
 
@@ -75,7 +75,7 @@ html,body{
 
 #temp{
     color: #ffffff;
-    font-size: 65px;
+    font-size: 80px;
     font-weight: 100;
 }
 
