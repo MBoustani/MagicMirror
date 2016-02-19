@@ -133,7 +133,7 @@
         $("#techcrunch_rss_feeds")
           .hide()
           .rss("http://feeds.feedburner.com/TechCrunch/", {
-            limit: 5,
+            limit: 7,
             entryTemplate: '- <span id="news_title">{title}</span><br><br>'//<div><span id="news_body">{bodyPlain}</span></div>'
           }, function() {
             $("#techcrunch_rss_feeds")
@@ -147,7 +147,7 @@
         $("#cnn_rss_feeds")
           .hide()
           .rss("http://rss.cnn.com/rss/edition.rss", {
-            limit: 5,
+            limit: 7,
             entryTemplate: '- <span id="news_title">{title}</span><br><br>'//<div><span id="news_body">{bodyPlain}</span></div>'
           }, function() {
             $("#cnn_rss_feeds")
