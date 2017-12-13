@@ -41,6 +41,14 @@ html,body{
     color: #ffffff;
 }
 
+#coinbase{
+    float: right;
+    text-align: right;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+
 #news{
     float: left;
     color: #ffffff;
@@ -120,4 +128,11 @@ html,body{
     margin-right: 20px;
     font-weight: 100;
     font-size: 25px;
+}
+
+
+.right_padding{
+    margin-right: 20px;
+    font-weight: 100;
+    font-size: 45px;
 }

@@ -13,7 +13,6 @@
   </head>
   <body class="black" onload=display_ct();>
         <span id='clock'></span><span id='second'></span>
-      </div>
         <br>
         <span id='day'></span>
         <br>
@@ -37,6 +36,12 @@
           <br>
           <span class="forecast_low_high" id='forecast_5_date'></span><span class="forecast_low_high" id='forecast_5_high'></span><span class="forecast_low_high" id='forecast_5_low'></span>
           <br>
+          <br>
+          <br>
+          <br>
+          <span class="right_padding" id="bitcoin"></span><br>
+          <span class="right_padding" id="ethetrum"></span><br>
+          <span class="right_padding" id="litecoin"></span><br>
         </div>
         <div id="rss-feeds"></div>
         <div id="news">
@@ -45,9 +50,13 @@
           <span id="cnn">CNN</span>
           <div id="cnn_rss_feeds"></div>
         </div>
-        
+  </body>
+
+
       
     <script>
+      var delay = 100000;
+      var digital_cur_delay = 10000;
       days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -78,7 +87,6 @@
           url: "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Los%20Angeles%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",
           data: {},
           success: function(data) {
-            console.log(data);
             var sunrise = data.query.results.channel.astronomy.sunrise;
             document.getElementById('sunrise').innerHTML = sunrise;
             var sunset = data.query.results.channel.astronomy.sunset;
@@ -126,7 +134,7 @@
             },
           dataType: 'json'
         });
-    })}, 300000);
+    })}, delay);
 
       window.setInterval(function(){ jQuery(function($) {
         $("#techcrunch_rss_feeds").empty();
@@ -140,7 +148,7 @@
               .show()
               .find('> div')
           })
-      })}, 300000);
+      })}, delay);
 
       window.setInterval(function(){ jQuery(function($) {
         $("#cnn_rss_feeds").empty();
@@ -154,7 +162,44 @@
               .show()
               .find('> div')
           })
-      })}, 300000);
+      })}, delay);
+
+      window.setInterval(function(){ jQuery(function($) {
+        $.ajax({
+          url: "https://api.coinbase.com/v2/prices/BTC-USD/sell",
+          data: {},
+          success: function(data) {
+          console.log(data);
+          document.getElementById('bitcoin').innerHTML = "$ " + data['data']['amount'] + "   BTC" ;
+             },
+          dataType: 'json'
+        });
+    })}, digital_cur_delay);
+
+      window.setInterval(function(){ jQuery(function($) {
+        $.ajax({
+          url: "https://api.coinbase.com/v2/prices/ETH-USD/sell",
+          data: {},
+          success: function(data) {
+          console.log(data);
+          document.getElementById('ethetrum').innerHTML = "$ " + data['data']['amount'] + "   ETH" ;
+             },
+          dataType: 'json'
+        });
+    })}, digital_cur_delay);
+
+      window.setInterval(function(){ jQuery(function($) {
+        $.ajax({
+          url: "https://api.coinbase.com/v2/prices/LTC-USD/sell",
+          data: {},
+          success: function(data) {
+          console.log(data);
+          document.getElementById('litecoin').innerHTML = "$ " + data['data']['amount'] + "   LTC";
+             },
+          dataType: 'json'
+        });
+    })}, digital_cur_delay);
+
+
     </script>
-  </body>
 </html>
