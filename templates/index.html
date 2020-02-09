@@ -21,9 +21,11 @@
         <div id="weather">
           <span id='temp'></span><span id="deg">&#8457;</span>
           <br>
+          <br>
           <span id='min_temp'></span><span id="deg">&#8457; min</span>
           <br>
           <span id='max_temp'></span><span id="deg">&#8457; max</span>
+          <br>
           <br>
           <span id='weather_description'></span>
 
@@ -106,13 +108,13 @@
             // var humidity = data.query.results.channel.atmosphere.humidity;
             // //document.getElementById('humidity').innerHTML = humidity;
             var temp = data.main.temp;
-            document.getElementById('temp').innerHTML = temp;
+            document.getElementById('temp').innerHTML = Number((temp).toFixed(0));
 
             var temp_min = data.main.temp_min;
-            document.getElementById('min_temp').innerHTML = temp_min;
+            document.getElementById('min_temp').innerHTML = Number((temp_min).toFixed(0));
 
             var temp_max = data.main.temp_max;
-            document.getElementById('max_temp').innerHTML = temp_max;
+            document.getElementById('max_temp').innerHTML = Number((temp_max).toFixed(0));
 
             var weather_description = data.weather[0].description;
             console.log(weather_description);
