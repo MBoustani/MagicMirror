@@ -18,10 +18,13 @@ Get the source code:
 ## Step3:
 
 Configure weather API:
-Register on OpenWeatherMap API and get a key
+
+Register on OpenWeatherMap API and get a key.
+
 https://home.openweathermap.org/api_keys
 
-To find your city code id open this file and look for you city, then grab the `id`
+To find your city code id open this file and look for you city, then grab the `id`.
+
 http://bulk.openweathermap.org/sample/city.list.json.gz 
 
 Open file app.py and replace openweathermap_API_Key and city_id values.
