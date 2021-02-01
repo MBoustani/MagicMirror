@@ -27,7 +27,7 @@ To find your city code id open this file and look for you city, then grab the `i
 
 http://bulk.openweathermap.org/sample/city.list.json.gz 
 
-Open file app.py and replace openweathermap_API_Key and city_id values.
+Open file `app.py` and replace `openweathermap_API_Key` and `city_id` values.
 
 
 ## Step4:
