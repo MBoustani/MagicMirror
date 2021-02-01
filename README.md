@@ -9,22 +9,30 @@ Install python Flask
 
 ## Step2: 
 
+Get the source code:
 
- ### add your openweathermap API Key and city id
-### to get the API key go to link: https://home.openweathermap.org/api_keys
-### openweathermap_API_Key = ""
+`$ git clone https://github.com/MBoustani/MagicMirror.git`
+`$ cd MagicMirror`
 
-### to find the city ID download this file and search for you city, grab the id and put in city_id varaible
-### http://bulk.openweathermap.org/sample/city.list.json.gz 
+## Step3:
 
-### For Los Angeles 
-### city_id = "5368361"
+Configure weather API:
+Register on OpenWeatherMap API and get a key
+https://home.openweathermap.org/api_keys
 
-## To Run the website
+To find your city code id open this file and look for you city, then grab the `id`
+http://bulk.openweathermap.org/sample/city.list.json.gz 
 
-## python app.py
+Open file app.py and replace openweathermap_API_Key and city_id values.
 
+
+## Step4:
+
+Run the flask webserver
+
+`python app.py`
+
+## Step5:
 
 Open the browser and go to the link: http://localhost:5000/
-
-Wait around 30 seconds for all information to show up
+Wait around 30 seconds for all information to show up.
