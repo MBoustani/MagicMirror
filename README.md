@@ -12,6 +12,7 @@ Install python Flask
 Get the source code:
 
 `$ git clone https://github.com/MBoustani/MagicMirror.git`
+
 `$ cd MagicMirror`
 
 ## Step3:
