@@ -1,4 +1,13 @@
 # Magic Mirror 
+Source code for building your own magic mirror webiste
+
+## Step1:
+
+Install python Flask
+
+`pip install flask`
+
+## Step2: 
 
 
  ### add your openweathermap API Key and city id
