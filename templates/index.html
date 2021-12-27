@@ -54,10 +54,11 @@
           <span class="right_padding" id="bitcoin"></span><br>
           <span class="right_padding" id="ethetrum"></span><br>
           <span class="right_padding" id="litecoin"></span><br>
+          <span class="right_padding" id="dogecoin"></span><br>
         </div>
         <div id="rss-feeds"></div>
         <div id="news">
-          <span id="techcrunch">TechCrunch</span>
+          <span id="techcrunch">CNET</span>
           <div id="techcrunch_rss_feeds"></div>
           <span id="cnn">CNN</span>
           <div id="cnn_rss_feeds"></div>
@@ -168,7 +169,7 @@
         $("#techcrunch_rss_feeds").empty();
         $("#techcrunch_rss_feeds")
           .hide()
-          .rss("http://feeds.feedburner.com/TechCrunch/", {
+          .rss("https://www.cnet.com/rss/news/", {
             limit: 7,
             entryTemplate: '- <span id="news_title">{title}</span><br><br>'//<div><span id="news_body">{bodyPlain}</span></div>'
           }, function() {
@@ -229,5 +230,20 @@
     })}, digital_cur_delay);
 
 
+    window.setInterval(function(){ jQuery(function($) {
+        $.ajax({
+          url: "https://api.coinbase.com/v2/prices/DOGE-USD/sell",
+          data: {},
+          success: function(data) {
+          console.log(data);
+          document.getElementById('dogecoin').innerHTML = "$ " + data['data']['amount'] + "   DOG";
+             },
+          dataType: 'json'
+        });
+    })}, digital_cur_delay);
+
+
     </script>
 </html>
+
+
