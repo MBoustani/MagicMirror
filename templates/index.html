@@ -28,29 +28,7 @@
           <br>
           <br>
           <span id='weather_description'></span>
-
-          
-
-
-          <br>
-          <!-- <img src="static/img/sunrise.png" id="sunrise_logo"><span id='sunrise'></span>
-          <br>
-          <img src="static/img/sunset.png" id="sunset_logo"><span id='sunset'></span>
-          <br>
-          <h1 id="forecast">Forecast</h1>
-          <span class="forecast_low_high" id='forecast_1_date'></span><span class="forecast_low_high" id='forecast_1_high'></span><span class="forecast_low_high" id='forecast_1_low'></span>
-          <br>
-          <span class="forecast_low_high" id='forecast_2_date'></span><span class="forecast_low_high" id='forecast_2_high'></span><span class="forecast_low_high" id='forecast_2_low'></span>
-          <br>
-          <span class="forecast_low_high" id='forecast_3_date'></span><span class="forecast_low_high" id='forecast_3_high'></span><span class="forecast_low_high" id='forecast_3_low'></span>
-          <br>
-          <span class="forecast_low_high" id='forecast_4_date'></span><span class="forecast_low_high" id='forecast_4_high'></span><span class="forecast_low_high" id='forecast_4_low'></span>
-          <br>
-          <span class="forecast_low_high" id='forecast_5_date'></span><span class="forecast_low_high" id='forecast_5_high'></span><span class="forecast_low_high" id='forecast_5_low'></span> -->
-          <br>
-          <br>
-          <br>
-          <br>
+          <br><br><br><br>
           <span class="right_padding" id="bitcoin"></span><br>
           <span class="right_padding" id="ethetrum"></span><br>
           <span class="right_padding" id="litecoin"></span><br>
@@ -66,11 +44,10 @@
   </body>
 
 
-      
     <script>
       var delay = 100000;
       var weather_dealy = 100000;
-      var digital_cur_delay = 10000;
+      var digital_cur_delay = 100000;
       days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -95,19 +72,13 @@
         document.getElementById('date').innerHTML = months[M] + " " + DoM + ", " + Y;
         tt=display_c();
       }
-    
+
       window.setInterval(function(){ jQuery(function($) {
         $.ajax({
-          url: "http://api.openweathermap.org/data/2.5/weather?id=5368361&appid=4fefe0572bd688bde44f0b44d6dc78a2&units=Imperial",
+          url: "http://api.openweathermap.org/data/2.5/weather?id={{city_id}}&appid={{openweathermap_API_Key}}&units=Imperial",
           data: {},
           success: function(data) {
-            console.log(data);
-            // var sunrise = data.query.results.channel.astronomy.sunrise;
-            // document.getElementById('sunrise').innerHTML = sunrise;
-            // var sunset = data.query.results.channel.astronomy.sunset;
-            // document.getElementById('sunset').innerHTML = sunset;
-            // var humidity = data.query.results.channel.atmosphere.humidity;
-            // //document.getElementById('humidity').innerHTML = humidity;
+
             var temp = data.main.temp;
             document.getElementById('temp').innerHTML = Number((temp).toFixed(0));
 
@@ -118,48 +89,8 @@
             document.getElementById('max_temp').innerHTML = Number((temp_max).toFixed(0));
 
             var weather_description = data.weather[0].description;
-            console.log(weather_description);
-            console.log(data);
-            console.log(weather);
           
             document.getElementById('weather_description').innerHTML = weather_description;
-
-            // var forecast = data.query.results.channel.item.forecast;
-            // var forecast_1 = forecast[0];
-            // var forecast_1_date = forecast[0].day;
-            // var forecast_1_high = forecast[0].high;
-            // var forecast_1_low = forecast[0].low;
-            // document.getElementById('forecast_1_date').innerHTML = forecast_1_date;
-            // document.getElementById('forecast_1_high').innerHTML = forecast_1_high;
-            // document.getElementById('forecast_1_low').innerHTML = forecast_1_low;
-            // var forecast_2 = forecast[1];
-            // var forecast_2_date = forecast[1].day;
-            // var forecast_2_high = forecast[1].high;
-            // var forecast_2_low = forecast[1].low;
-            // document.getElementById('forecast_2_date').innerHTML = forecast_2_date;
-            // document.getElementById('forecast_2_high').innerHTML = forecast_2_high;
-            // document.getElementById('forecast_2_low').innerHTML = forecast_2_low;
-            // var forecast_3 = forecast[2];
-            // var forecast_3_date = forecast[2].day;
-            // var forecast_3_high = forecast[2].high;
-            // var forecast_3_low = forecast[2].low;
-            // document.getElementById('forecast_3_date').innerHTML = forecast_3_date;
-            // document.getElementById('forecast_3_high').innerHTML = forecast_3_high;
-            // document.getElementById('forecast_3_low').innerHTML = forecast_3_low;
-            // var forecast_4 = forecast[3];
-            // var forecast_4_date = forecast[3].day;
-            // var forecast_4_high = forecast[3].high;
-            // var forecast_4_low = forecast[3].low;
-            // document.getElementById('forecast_4_date').innerHTML = forecast_4_date;
-            // document.getElementById('forecast_4_high').innerHTML = forecast_4_high;
-            // document.getElementById('forecast_4_low').innerHTML = forecast_4_low;
-            // var forecast_5 = forecast[4];
-            // var forecast_5_date = forecast[4].day;
-            // var forecast_5_high = forecast[4].high;
-            // var forecast_5_low = forecast[4].low;
-            // document.getElementById('forecast_5_date').innerHTML = forecast_5_date;
-            // document.getElementById('forecast_5_high').innerHTML = forecast_5_high;
-            // document.getElementById('forecast_5_low').innerHTML = forecast_5_low;
             },
           dataType: 'json'
         });
@@ -171,7 +102,7 @@
           .hide()
           .rss("https://www.cnet.com/rss/news/", {
             limit: 7,
-            entryTemplate: '- <span id="news_title">{title}</span><br><br>'//<div><span id="news_body">{bodyPlain}</span></div>'
+            entryTemplate: '- <span id="news_title">{title}</span><br><br>'
           }, function() {
             $("#techcrunch_rss_feeds")
               .show()
@@ -185,7 +116,7 @@
           .hide()
           .rss("http://rss.cnn.com/rss/edition.rss", {
             limit: 7,
-            entryTemplate: '- <span id="news_title">{title}</span><br><br>'//<div><span id="news_body">{bodyPlain}</span></div>'
+            entryTemplate: '- <span id="news_title">{title}</span><br><br>'
           }, function() {
             $("#cnn_rss_feeds")
               .show()
@@ -198,7 +129,6 @@
           url: "https://api.coinbase.com/v2/prices/BTC-USD/sell",
           data: {},
           success: function(data) {
-          console.log(data);
           document.getElementById('bitcoin').innerHTML = "$ " + data['data']['amount'] + "   BTC" ;
              },
           dataType: 'json'
@@ -210,7 +140,6 @@
           url: "https://api.coinbase.com/v2/prices/ETH-USD/sell",
           data: {},
           success: function(data) {
-          console.log(data);
           document.getElementById('ethetrum').innerHTML = "$ " + data['data']['amount'] + "   ETH" ;
              },
           dataType: 'json'
@@ -222,7 +151,6 @@
           url: "https://api.coinbase.com/v2/prices/LTC-USD/sell",
           data: {},
           success: function(data) {
-          console.log(data);
           document.getElementById('litecoin').innerHTML = "$ " + data['data']['amount'] + "   LTC";
              },
           dataType: 'json'
