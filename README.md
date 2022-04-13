@@ -1,5 +1,6 @@
 # Magic Mirror 
 Checkout my blog on Medium https://medium.com/@MaziBoustani/build-your-own-smart-mirror-just-under-300-4d5ad1c833bf
+
 Source code for building your own magic mirror webiste
 
 ## Step1:
